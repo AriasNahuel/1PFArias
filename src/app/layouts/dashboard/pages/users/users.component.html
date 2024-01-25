@@ -1,4 +1,6 @@
-<app-user-form></app-user-form>
+<div class="mb-3">
+    <app-user-form (userSubmitted)="onUserSubmitted($event)"></app-user-form>
+</div>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 

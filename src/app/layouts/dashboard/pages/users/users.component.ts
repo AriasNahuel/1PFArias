@@ -33,4 +33,10 @@ export class UsersComponent {
       role: 'USER'
     }
   ];
+
+  onUserSubmitted(ev: User): void {
+    //this.dataSource.push(ev);
+    this.dataSource = [...this.dataSource, {...ev, id: new Date().getTime()}];
+  }
+
 }
