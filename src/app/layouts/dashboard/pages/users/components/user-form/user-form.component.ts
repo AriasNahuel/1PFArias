@@ -28,6 +28,7 @@ onSubmit(): void{
   } else {
   this.userSubmitted.emit(this.userForm.value);
   this.userForm.reset();
+  this.userForm.markAsPristine();
   }
 }
 }

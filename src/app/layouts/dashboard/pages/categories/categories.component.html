@@ -1,6 +1,24 @@
-<form>
+<form [formGroup]="categoriesForm" class="mb-5">
     <mat-form-field>
         <mat-label>Nombre</mat-label>
-        <input matInput/>
+        <input formControlName="name" matInput />
+        <button (click)="onnAddStudent()" matSuffix mat-icon-button matTooltip="Primary" color="primary">
+            <mat-icon>add</mat-icon>
+        </button>
     </mat-form-field>
+
+    <div class="my-5">
+        <hr />
+    </div>
+
+    @for (control of studentsControl.controls; track $index) {
+    <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input [formControl]="getControl($index)" matInput />
+        <button (click)="deleteControl($index)" mat-icon-button matSuffix color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-form-field>
+    }
 </form>
+<pre>{{categoriesForm.value | json}}</pre>

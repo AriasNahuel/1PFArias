@@ -14,7 +14,7 @@ export interface PeriodicElement {
   styleUrl: './users.component.scss'
 })
 export class UsersComponent {
-  displayedColumns: string[] = ['id', 'fullName', 'email', 'role'];
+  displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'actions'];
   dataSource: User[] = [
     {
       id: 1,
@@ -37,6 +37,11 @@ export class UsersComponent {
   onUserSubmitted(ev: User): void {
     //this.dataSource.push(ev);
     this.dataSource = [...this.dataSource, {...ev, id: new Date().getTime()}];
+  }
+
+  onDeleteUser(id: number): void {
+    // Filter out the user with the specified ID
+    this.dataSource = this.dataSource.filter(user => user.id !== id);
   }
 
 }

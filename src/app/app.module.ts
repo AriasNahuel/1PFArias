@@ -1,10 +1,17 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
+
+import es from '@angular/common/locales/es';
+import esAR from '@angular/common/locales/es-AR';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(es);
+registerLocaleData(esAR);
 
 @NgModule({
   declarations: [
@@ -16,7 +23,12 @@ import { DashboardModule } from './layouts/dashboard/dashboard.module';
     BrowserAnimationsModule,
     DashboardModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'es-AR'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
