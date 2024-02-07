@@ -10,14 +10,15 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = '50260-pf-arias';
 
-  //isLoading = false;
-
-  isLoading$: Observable<boolean>;
+  isLoading = false;
 
   constructor(private loadingService: LoadingService){
-    this.isLoading$ = this.loadingService.isLoading$;
-    // this.loadingService.loadingTriggered$.subscribe({
-    //   next: (value) => (this.isLoading = value),
-    // })
+    this.loadingService.loadingTriggered$.subscribe({
+      next: (value) => {
+        setTimeout(() => {
+          this.isLoading = value;
+        },);
+      },
+    })
   }
 }
