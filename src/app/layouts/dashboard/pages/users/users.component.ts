@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from './models';
+import { UsersService } from '../../../../core/services/users.service';
 
 export interface PeriodicElement {
   name: string;
@@ -34,13 +35,15 @@ export class UsersComponent {
     }
   ];
 
+  constructor(private usersService: UsersService) {
+
+  }
+
   onUserSubmitted(ev: User): void {
-    //this.dataSource.push(ev);
     this.dataSource = [...this.dataSource, {...ev, id: new Date().getTime()}];
   }
 
   onDeleteUser(id: number): void {
-    // Filter out the user with the specified ID
     this.dataSource = this.dataSource.filter(user => user.id !== id);
   }
 

@@ -8,6 +8,11 @@ import {MatIconModule} from '@angular/material/icon';
 import { UsersModule } from './pages/users/users.module';
 import { CategoriesModule } from './pages/categories/categories.module';
 import { PipesModule } from './pages/pipes/pipes.module';
+import { RxjsExampleModule } from './pages/rxjs-example/rxjs-example.module';
+import { RxjsIntroduccionModule } from './pages/rxjs-introduccion/rxjs-introduccion.module';
+
+
+
 @NgModule({
   declarations: [
     DashboardComponent
@@ -21,6 +26,8 @@ import { PipesModule } from './pages/pipes/pipes.module';
     UsersModule,
     CategoriesModule,
     PipesModule,
+    RxjsExampleModule,
+    RxjsIntroduccionModule
   ],
   exports: [
     DashboardComponent

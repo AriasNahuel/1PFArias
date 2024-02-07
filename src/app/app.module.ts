@@ -9,6 +9,8 @@ import { DashboardModule } from './layouts/dashboard/dashboard.module';
 import es from '@angular/common/locales/es';
 import esAR from '@angular/common/locales/es-AR';
 import { registerLocaleData } from '@angular/common';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 registerLocaleData(es);
 registerLocaleData(esAR);
@@ -21,13 +23,15 @@ registerLocaleData(esAR);
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DashboardModule
+    DashboardModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
       provide: LOCALE_ID,
       useValue: 'es-AR'
-    }
+    },
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
   ],
   bootstrap: [AppComponent]
 })

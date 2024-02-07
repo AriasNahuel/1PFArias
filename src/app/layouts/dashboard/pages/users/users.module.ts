@@ -10,6 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { UserModalComponent } from './components/user-modal/user-modal.component';
+import { UsersService } from '../../../../core/services/users.service';
+import { UsersMockService } from '../../../../core/services/users-mock.service';
 
 @NgModule({
   declarations: [
@@ -30,5 +32,17 @@ import { UserModalComponent } from './components/user-modal/user-modal.component
   exports: [
     UsersComponent
   ],
+  providers: [
+    UsersService,
+    {
+      provide: 'USER_TOKEN',
+      useValue: '12345'
+    }
+    // {
+    //   provide: UsersService,
+    //   useClass: UsersMockService,
+    // }
+    
+  ]
 })
 export class UsersModule { }
