@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../../layouts/dashboard/pages/users/models';
 import { Observable, delay, of, tap } from 'rxjs';
 import { AlertsService } from './alerts.service';
@@ -26,8 +26,10 @@ let USERS_DB: User[] = [
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
-  constructor(private alerts: AlertsService) {
+  constructor(private alerts: AlertsService) {}
 
+  getUserById(id: number | string): Observable<User | undefined> {
+    return of(USERS_DB.find((user) => user.id == id)).pipe(delay(1000));
   }
   getRoles(): Observable<string[]> {
     return of(ROLES_DB).pipe(delay(1000));

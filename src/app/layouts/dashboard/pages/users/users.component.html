@@ -2,8 +2,6 @@
     <app-user-form (userSubmitted)="onUserSubmitted($event)"></app-user-form>
 </div>
 
-<pre>{{ roles | json }}</pre>
-
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!-- ID Column -->
@@ -34,7 +32,7 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> actions </th>
         <td mat-cell *matCellDef="let user">
-            <button color="primary" mat-icon-button (click)="onDeleteUser(user)">
+            <button [routerLink]="user.id" color="primary" mat-icon-button>
                 <mat-icon>edit</mat-icon>
             </button>
             <button color="warn" mat-icon-button (click)="onDeleteUser(user)">

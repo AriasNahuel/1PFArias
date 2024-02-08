@@ -12,12 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserModalComponent } from './components/user-modal/user-modal.component';
 import { UsersService } from '../../../../core/services/users.service';
 import { UsersMockService } from '../../../../core/services/users-mock.service';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     UsersComponent,
     UserFormComponent,
-    UserModalComponent
+    UserModalComponent,
+    UserDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +31,7 @@ import { UsersMockService } from '../../../../core/services/users-mock.service';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
+    RouterModule
   ],
   exports: [
     UsersComponent
@@ -38,11 +42,6 @@ import { UsersMockService } from '../../../../core/services/users-mock.service';
       provide: 'USER_TOKEN',
       useValue: '12345'
     }
-    // {
-    //   provide: UsersService,
-    //   useClass: UsersMockService,
-    // }
-    
   ]
 })
 export class UsersModule { }

@@ -1,20 +1,20 @@
 <mat-drawer-container class="dashboard-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-        <p class="flex justify-content-center">Welcome!</p>
-        <div class="flex flex-column mr-5 ml-5">
-            <button class="mt-3" mat-raised-button>
-                Users
-            </button>
-            <button class="mt-3" mat-raised-button>
-                Students
-            </button>
-            <button class="mt-3" mat-raised-button>
-                Profesors
-            </button>
-            <button class="mt-3" mat-raised-button>
-                Courses
-            </button>
-        </div>
+    <mat-drawer #drawer class="dashboard-sidebar" mode="side">
+        <mat-nav-list>
+            <a
+                #homeLink="routerLinkActive"
+                routerLinkActive 
+                [activated] = "homeLink.isActive"
+                routerLink="home" 
+                mat-list-item>Inicio</a>
+            <a
+                #usersLink="routerLinkActive"
+                routerLinkActive 
+                [activated] = "usersLink.isActive"
+                routerLink="users" 
+                mat-list-item>Usuarios</a>
+            <a (click)="logout()" mat-list-item>Cerrar Sesión</a>
+        </mat-nav-list>
     </mat-drawer>
 
     <div class="example-sidenav-content">
@@ -32,11 +32,7 @@
             </button>
         </mat-toolbar>
         <div style="padding: 20px" class="p-3">
-            <!-- <app-rxjs-introduccion></app-rxjs-introduccion> -->
-            <!-- <app-rxjs-example></app-rxjs-example> -->
-            <!-- <app-pipes></app-pipes> -->
-            <app-users></app-users>
-            <!-- <app-categories></app-categories> -->
+            <router-outlet></router-outlet>
 
         </div>
     </div>
