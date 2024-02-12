@@ -13,6 +13,12 @@
                 [activated] = "usersLink.isActive"
                 routerLink="users" 
                 mat-list-item>Usuarios</a>
+            <a
+                #coursesLink="routerLinkActive"
+                routerLinkActive 
+                [activated] = "coursesLink.isActive"
+                routerLink="courses" 
+                mat-list-item>Cursos</a>
             <a (click)="logout()" mat-list-item>Cerrar Sesión</a>
         </mat-nav-list>
     </mat-drawer>

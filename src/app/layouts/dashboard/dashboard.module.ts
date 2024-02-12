@@ -15,6 +15,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { UsersComponent } from './pages/users/users.component';
 import { MatListModule } from '@angular/material/list';
 import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail.component';
+import { CoursesComponent } from './pages/courses/courses.component';
 
 
 @NgModule({
@@ -44,6 +45,10 @@ import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail
       {
         path: 'users/:id',
         component: UserDetailComponent,
+      },
+      {
+        path: 'courses',
+        component: CoursesComponent,
       },
       {
         path: '**',

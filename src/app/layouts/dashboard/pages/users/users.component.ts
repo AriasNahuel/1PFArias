@@ -4,13 +4,6 @@ import { UsersService } from '../../../../core/services/users.service';
 import { LoadingService } from '../../../../core/services/loading.service';
 import { forkJoin } from 'rxjs';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
